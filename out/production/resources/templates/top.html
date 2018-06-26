@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>asoview! Ticket Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--/*-->
+  <script src="/static/js/dev.js"></script>
+  <link id="import-head" rel="import" href="/templates/fragments/head.html" />
+  <link id="import-global-navigation" rel="import" href="/templates/fragments/global-navigation.html" />
+  <link id="import-page-footer" rel="import" href="/templates/fragments/page-footer.html" />
+  <!--*/-->
+
+  <!--/*--><script>component('head','favicon')</script><!--*/-->
+
+  <link rel="stylesheet" href="/static/css/top.min.css" th:href="@{/css/top.min.css}" />
+</head>
+<body>
+  <!--/*--><script>component('global-navigation','default')</script><!--*/-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Spring Boot Test!</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>メニューを選んでください</p>
+      <div class="list-group">
+        <a href="#" th:href="@{/ticket-type/query}" class="list-group-item">
+          <h4 class="list-group-item-heading">チケットタイプ</h4>
+          <p class="list-group-item-text">既に公開中のチケットタイプの参照・編集や、設定中のチケットタイプの参照・編集、新しいチケットタイプの作成</p>
+        </a>
+        <a href="#" th:href="@{/purchase/query}" class="list-group-item">
+          <h4 class="list-group-item-heading">購入者</h4>
+          <p class="list-group-item-text">チケットを購入したゲストの参照、チケットの消し込み、キャンセルの対応</p>
+        </a>
+        <a href="#" th:href="@{/base/query}" class="list-group-item">
+          <h4 class="list-group-item-heading">拠点</h4>
+          <p class="list-group-item-text">チケット拠点情報の参照・編集、受付処理パスコードの設定、チャネルコードと料率の参照、編集や追加</p>
+        </a>
+        <a href="#" th:href="@{/account/search(target=account)}" class="list-group-item">
+          <h4 class="list-group-item-heading">アカウント</h4>
+          <p class="list-group-item-text">パートナーアカウントの参照・編集や削除、新規作成</p>
+        </a>
+        <a href="#" th:href="@{/settlement/}" class="list-group-item">
+          <h4 class="list-group-item-heading">請求</h4>
+          <p class="list-group-item-text">購入されたチケットブックの請求データ編集</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/*--><script>component('page-footer','default')</script><!--*/-->
+<!--/*/<th:block th:replace="fragments/page-footer::#default"></th:block>/*/-->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asoview.weather.datasource.weathercity.WeatherCityMapper">
+
+    <resultMap id="weatherCity" type="com.asoview.weather.model.weathercity.WeatherCitySummary">
+        <result property="weatherCityId" column="id"/>
+        <result property="cityId" column="city_id"/>
+        <result property="cityName" column="city_name"/>
+        <result property="countryName" column="country_name"/>
+        <result property="createDate" column="create_date"/>
+        <result property="Icon" column="city_icon"/>
+        <result property="Temperature" column="city_temperature"/>
+        <result property="Pressure" column="city_pressure"/>
+        <result property="Wind" column="city_wind"/>
+        <result property="Cloud" column="city_cloud"/>
+        <result property="Status" column="city_status"/>
+    </resultMap>
+
+    <select id="findAllCity" resultMap="weatherCity">
+      SELECT
+        weather_city.id id,
+	    weather_city.city_id city_id,
+	    city.city_name,
+	    city.country_name,
+	    DATE_FORMAT(weather_city.create_date, '%Y/%c/%e') create_date,
+	    weather_city.city_icon,
+	    weather_city.city_temperature,
+	    weather_city.city_pressure,
+	    weather_city.city_wind,
+	    weather_city.city_cloud,
+        weather_city.city_status
+	    FROM weather.weather_city weather_city INNER JOIN weather.city city ON weather_city.city_id = city.id
+    </select>
+
+    <insert id="insert">
+        INSERT INTO weather.weather_city (
+          city_id,
+          city_icon,
+          city_temperature,
+          city_pressure,
+          city_wind,
+          city_cloud,
+          create_date
+        ) VALUES (
+          #{weatherCity.id},
+          #{weatherCity.Icon},
+          #{weatherCity.Temperature},
+          #{weatherCity.Pressure},
+          #{weatherCity.Wind},
+          #{weatherCity.Cloud},
+          DATE_FORMAT(NOW(), '%Y-%m-%d')
+        )
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM
+          weather.weather_city
+        WHERE
+          id = #{weatherCityId}
+    </delete>
+
+    <delete id="deleteCityCurrentDate">
+        DELETE FROM
+          weather.weather_city
+        WHERE
+          city_id = #{cityId} and DATE_FORMAT(create_date, '%Y%m%d') = DATE_FORMAT(NOW(), '%Y%m%d')
+    </delete>
+</mapper>

@@ -1,0 +1,52 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+    compile("org.springframework.retry:spring-retry:1.2.1.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-mail:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-validation:${springBootVersion}")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "${springBootVersion}"
+    runtime('mysql:mysql-connector-java:5.1.38')
+    compile('org.thymeleaf.extras:thymeleaf-extras-conditionalcomments:2.1.1.RELEASE')
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}")
+
+    compile("de.javakaffee.msm:memcached-session-manager:1.9.2")
+    compile("de.javakaffee.msm:memcached-session-manager-tc8:1.9.2")
+
+    runtime("org.webjars:bootstrap:3.3.4")
+    runtime("org.webjars:font-awesome:4.3.0-1")
+    runtime("org.webjars:html5shiv:3.7.2")
+    runtime("org.webjars:respond:1.4.2")
+
+    compile("org.mybatis:mybatis:3.3.1")
+    compile("org.mybatis:mybatis-spring:1.3.0")
+    compile("org.mybatis:mybatis-typehandlers-jsr310:1.0.0")
+}

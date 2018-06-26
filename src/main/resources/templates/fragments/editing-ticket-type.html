@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title th:text="${title}">editing-ticket-type</title>
+</head>
+
+<body>
+
+<th:block id="default" th:if="${ticketType.id != null}">
+<div class="panel panel-default">
+<div class="panel-heading">設定中のチケットタイプ</div>
+<div class="panel-body">
+<dl class="dl-horizontal">
+  <dt>チケット拠点</dt>
+  <dd th:text="${base.name.value}">ユニバーサルスタジオジャパン</dd>
+  <dt>チケット名</dt>
+  <dd th:text="${ticketType.title.value}">1デイ・スタジオ・パス</dd>
+</dl>
+</div>
+</div>
+</th:block>
+
+</body>
+</html>

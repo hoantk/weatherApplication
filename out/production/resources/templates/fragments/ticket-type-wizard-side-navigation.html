@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title th:text="${title}">ticket-type-wizard-side-navigation</title>
+</head>
+
+<body>
+
+<th:block id="default">
+  <!-- todo : add active state -->
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a href="/templates/tickettype/register/promotion.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/promotion/registered/' + ${ticketType.id.value}}">販促内容</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/image.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/image/registered/' + ${ticketType.id.value}}">画像</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/specification.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/specification/registered/' + ${ticketType.id.value}}">チケット仕様</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/market.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/market/registered/' + ${ticketType.id.value}}">販売経路</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/category.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/category/registered/' + ${ticketType.id.value}}">カテゴリ</a></li>
+    <li role="presentation" th:if="${ticketType.style.unknown}"><a href="/templates/tickettype/register/style.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/style/registered/' + ${ticketType.id.value}}">形式</a></li>
+    <li role="presentation" th:if="${ticketType.style.fullyear}"><a href="/templates/tickettype/register/style-full-year.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/style-full-year/registered/' + ${ticketType.id.value}}">通年形式</a></li>
+    <li role="presentation" th:if="${ticketType.style.datetime}"><a href="/templates/tickettype/register/style-date-time.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/style-date-time/registered/' + ${ticketType.id.value}}">日時形式</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/period-for-sale.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/period-for-sale/registered/' + ${ticketType.id.value}}">販売期間</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/example.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/example/registered/' + ${ticketType.id.value}}">Example</a></li>
+    <li role="presentation"><a href="/templates/tickettype/register/entrance.html" th:href="@{'/partner/' + ${partner.code.value} + '/base/' + ${base.id.value} + '/ticket-type/entrance/registered/' + ${ticketType.id.value}}">入場方法</a></li>
+  </ul>
+</th:block>
+
+<th:block id="new">
+  <!-- todo : add active state -->
+  <ul class="nav nav-pills nav-stacked">
+    <li role="presentation"><a>販促内容</a></li>
+    <li role="presentation"><a>画像</a></li>
+    <li role="presentation"><a>チケット仕様</a></li>
+    <li role="presentation"><a>販売経路</a></li>
+    <li role="presentation"><a>カテゴリ</a></li>
+    <li role="presentation"><a>形式</a></li>
+    <li role="presentation"><a>販売期間</a></li>
+    <li role="presentation"><a>入場方法</a></li>
+  </ul>
+</th:block>
+
+</body>
+</html>

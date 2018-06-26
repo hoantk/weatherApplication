@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title th:text="${title}">global-navigation</title>
+</head>
+
+<body>
+
+<th:block id="default">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">asoview! Ticket Manager</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/" th:href="@{/ticket-type/query}">チケット <span class="sr-only">(current)</span></a></li>
+          <li><a href="#" th:href="@{/purchase/query}">購入者</a></li>
+          <li><a href="#" th:href="@{/base/query}">拠点</a></li>
+          <li><a href="#" th:href="@{/account/search(target=account)}">アカウント</a></li>
+          <li><a href="#" th:href="@{/settlement/}">請求</a></li>
+        </ul>
+        <form method="post" class="navbar-form navbar-right" th:action="@{/logout}">
+          <div class="form-group">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+            <span th:text="${#authentication.userAuthentication.details.email}">l.matsumura@asoview.co.jp</span>&nbsp;
+          </div>
+          <button type="submit" class="btn btn-default">ログアウト</button>
+        </form>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</th:block>
+
+</body>
+</html>

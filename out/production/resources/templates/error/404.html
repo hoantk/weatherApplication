@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>システムエラー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--/*-->
+  <script src="/static/js/dev.js"></script>
+  <link id="import-head" rel="import" href="/templates/fragments/head.html" />
+  <!--*/-->
+
+  <!--/*--><script>component('head','favicon')</script><!--*/-->
+  <!--/*/
+  <th:block th:replace="fragments/head::#favicon"></th:block>
+  <th:block th:replace="fragments/head::#bootstrap"></th:block>
+  /*/-->
+
+  <link rel="stylesheet" href="/static/css/error.min.css" th:href="@{/css/error.min.css}" />
+</head>
+<body class="page-body">
+<br/>
+  <div class="error-panel">
+    <h1 class="error-panel__title">？</h1>
+    <p class="error-panel__message">Page Not Found</p>
+    <p class="error-panel__foot">
+      <a class="error-panel__link" href="/templates/top.html" th:href="@{/}">Spring Boot Test!</a>
+    </p>
+  </div>
+</body>
+</html>
