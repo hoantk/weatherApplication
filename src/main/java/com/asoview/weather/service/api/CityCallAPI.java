@@ -14,7 +14,7 @@ import java.net.URI;
 @Service
 public class CityCallAPI {
 
-    private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={apikey}";
+    private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={apikey}&units=metric";
 
     private final String API_KEY = "21f64bcd9b719a342c087ddc538fa039";
 
